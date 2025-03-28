@@ -1,4 +1,4 @@
-/** \file bugExample.cpp
+/** \file lab3.cpp
  *  \brief     A little with logical bugs in it
  *  \details   This program is littered with logical bugs. Your task is the
  *              following:
@@ -48,7 +48,7 @@ int main() {
         switch (choice){
             // Enter quantity
             case 1:
-                fillInArray(quantity, 11);
+                fillInArray(quantity, SIZE);
                 break;
             // Calculate total
             case 2:
@@ -135,7 +135,7 @@ void multArrays(const int arrQuantity[], const int arrPrice[], int arrTotal[], c
  * array. In addition the function sums up the value of all the elements and
  * print the total.
  * <BR>
- * @param ar The array containing the values
+ * @param arr The array containing the values
  * @param size The size of the array.
  */
 void displayArray(const int arr[], const int size){
