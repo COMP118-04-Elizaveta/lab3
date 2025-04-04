@@ -16,16 +16,21 @@
 
 #include <iostream>
 #include <cassert>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 
 //Global Constant
 const int VAT = 21;
+const int WITH_VAT = 1;
+const int WITHOUT_VAT = 0;
+const int VAT_DIM = 2;
 
 // Function prototypes
 int printMenu();
 void fillInArray(int[], const int);
 void multArrays(const int[], const double[], int[], const int);
-void displayArray(const double[], const int);
+void displayArray(const double[][VAT_DIM], const int);
 int sumOddArray(const int[], const int);
 bool isAllPositive(const int[], const int);
 void avgOddArray(const int[], const int, int&);
@@ -43,7 +48,7 @@ int main() {
     int price[SIZE] = {12, 4, 8, 1, 17, 2, 4, 2, 9, 1};
     // Declare array quantity and total
     int quantity[SIZE] = {};
-    double total[9] = {};
+    double total[9][VAT_DIM] = {};
 
     // Interactive menu
     do {
@@ -145,15 +150,15 @@ void multArrays(const int arrQuantity[], const int arrPrice[], int arrTotal[], c
  * @param arr The array containing the values
  * @param size The size of the array.
  */
-void displayArray(const double arr[], const int size){
+void displayArray(const double arr[][VAT_DIM], const int size){
     int sum = 0;
 
-    for (int i = 0; i < size; ++i){
-        cout << "\nValue at " << i << ": " << arr[i];
-        sum += arr[i];
+    for (int i = 0; i < size - 1; ++i){
+        cout << "\nValue without VAT at " << i << ": " << arr[i][WITHOUT_VAT];
+        sum += arr[i][WITHOUT_VAT];
     }
 
-    cout << "\nThe total is: " << sum;
+    cout << "\nThe total without VAT is: " << sum;
 }
 
 // Sums the odd numbers in the array and returns the result
