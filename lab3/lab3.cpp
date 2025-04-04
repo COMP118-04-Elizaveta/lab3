@@ -18,6 +18,9 @@
 #include <cassert>
 using namespace std;
 
+//Global Constant
+const int VAT = 21;
+
 // Function prototypes
 int printMenu();
 void fillInArray(int[], const int);
