@@ -24,8 +24,8 @@ const int VAT = 21;
 // Function prototypes
 int printMenu();
 void fillInArray(int[], const int);
-void multArrays(const int[], const int[], int[], const int);
-void displayArray(const int[], const int);
+void multArrays(const int[], const double[], int[], const int);
+void displayArray(const double[], const int);
 int sumOddArray(const int[], const int);
 bool isAllPositive(const int[], const int);
 void avgOddArray(const int[], const int, int&);
@@ -42,7 +42,8 @@ int main() {
     // Initialize array price
     int price[SIZE] = {12, 4, 8, 1, 17, 2, 4, 2, 9, 1};
     // Declare array quantity and total
-    int quantity[SIZE], total[9];
+    int quantity[SIZE] = {};
+    double total[9] = {};
 
     // Interactive menu
     do {
@@ -55,7 +56,7 @@ int main() {
                 break;
             // Calculate total
             case 2:
-                multArrays(quantity, total, price, SIZE);
+                //multArrays(quantity, total, price, SIZE);
                 break;
             // Print total
             case 3:
@@ -144,7 +145,7 @@ void multArrays(const int arrQuantity[], const int arrPrice[], int arrTotal[], c
  * @param arr The array containing the values
  * @param size The size of the array.
  */
-void displayArray(const int arr[], const int size){
+void displayArray(const double arr[], const int size){
     int sum = 0;
 
     for (int i = 0; i < size; ++i){
