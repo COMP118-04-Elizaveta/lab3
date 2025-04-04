@@ -1,5 +1,5 @@
 /** \file lab3.cpp
- *  \brief     A little with logical bugs in it
+ *  \brief     A shopping program that calculates the total price for an array of items
  *  \details   This program is littered with logical bugs. Your task is the
  *              following:
  *                1) Compile and run the program.
@@ -62,6 +62,8 @@ int main() {
             case 4:
                 // No code needed
                 break;
+            case 5:
+                cout << "\nAll positive:" << isAllPositive(quantity, SIZE);
             default:
                 assert(true);
         }
@@ -86,11 +88,12 @@ int printMenu(){
         cout << "\n2) Calculate total";
         cout << "\n3) Print total";
         cout << "\n4) Exit";
+        cout << "\n5) All positive";
 
         cout << "\nEnter the choice: ";
         cin >> choice;
 
-        if (choice < 1 || choice > 4){
+        if (choice < 1 || choice > 5){
             cout << "\nWrong choice, try again.";
         }
     } while (choice < 1 || choice > 5);
@@ -126,7 +129,7 @@ void multArrays(const int arrQuantity[], const int arrPrice[], int arrTotal[], c
     assert (size > 0);
 
     for (int i = 0; i <= size; ++i){
-        arrTotal[i] = arrQuantity[i] + arrPrice[i+1];
+        arrTotal[i] = arrQuantity[i] * arrPrice[i];
     }
 }
 
@@ -141,7 +144,7 @@ void multArrays(const int arrQuantity[], const int arrPrice[], int arrTotal[], c
 void displayArray(const int arr[], const int size){
     int sum = 0;
 
-    for (int i = 1; i < size; ++i){
+    for (int i = 0; i < size; ++i){
         cout << "\nValue at " << i << ": " << arr[i];
         sum += arr[i];
     }
@@ -155,10 +158,15 @@ int sumOddArray(const int arr[], const int size){
     return 0;
 }
 
-// If all the values in the array are positive return true
+// If all the values in the array are greater than 0 return true
 bool isAllPositive(const int arr[], const int size){
-    //@TODO: You will need to complete this. Including makeing the appropriate comment header
-  return 0;
+    
+    for (int i = 0; i < size; i++){
+        if (arr[i] <= 0) {
+            return false;
+        }
+    }
+  return true;
 }
 
 // Finds the average of all the odd numbers in the array and stores this in the last argument
