@@ -161,13 +161,30 @@ void displayArray(const double arr[][VAT_DIM], const int size){
     cout << "\nThe total without VAT is: " << sum;
 }
 
-// Sums the odd numbers in the array and returns the result
+/**
+ * <code>sumOddArray</code> Sums the odd numbers in the array and returns the result
+ * <BR>
+ * @param arr The array containing the values
+ * @param size The size of the array.
+ */
 int sumOddArray(const int arr[], const int size){
 //@TODO: You will need to complete this. Including makeing the appropriate comment header
-    return 0;
+    int count = 0;
+    for (int i = 0; i < size; i++){
+        if (arr[i] % 2 == 1) {
+            count++;
+        }
+    }
+    
+    return count;
 }
 
-// If all the values in the array are greater than 0 return true
+/**
+ * <code>isAllPositive</code> If all the values in the array are greater than 0 return true
+ * <BR>
+ * @param arr The array containing the values
+ * @param size The size of the array.
+ */
 bool isAllPositive(const int arr[], const int size){
     
     for (int i = 0; i < size; i++){
